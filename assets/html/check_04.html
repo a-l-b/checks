@@ -1,0 +1,98 @@
+<!--
+Check (4/6)
+Generate the List based on given data by just using javascript.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            background: #fff;
+            display: inline-block;
+            padding: 10px;
+            margin: 10px auto;
+            width: 300px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin: 0 4px;
+            padding: 0;
+        }
+
+        .list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list li {
+            background: #ccc;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="list">
+        <h2>Hardcoded List</h2>
+        <ul>
+            <li>Entry One</li>
+            <li>Entry Four</li>
+            <li>Entry Two</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Programmatic List</h2>
+        <ul id='printTextHere'></ul>
+    </div>
+
+    <script>
+        const data = {
+            results: 5,
+            error: null,
+            data: [{
+                id: 1,
+                name: 'entry one',
+                aNumber: 42,
+            },
+                {
+                    id: 2,
+                    name: 'entry two',
+                    aNumber: 104,
+                },
+                {
+                    id: 3,
+                    name: 'entry three',
+                    aNumber: 31,
+                },
+                {
+                    id: 4,
+                    name: 'entry four',
+                    aNumber: 80,
+                },
+                {
+                    id: 5,
+                    name: 'entry five',
+                    aNumber: 15,
+                }
+            ]
+        };
+
+        // Your Solution here:
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!--
+Check (6/6)
+This code is not written very efficiently. Make it better just by using JavaScript.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const data = [
+            {
+                fruit: 'apple',
+                vegetable: 'tomato',
+                legume: 'pea',
+            },
+            {
+                fruit: 'banana',
+                vegetable: 'cucumber',
+                legume: 'bean',
+            },
+            {
+                fruit: null,
+                vegetable: 'pepper',
+                legume: 'lentils',
+            },
+        ];
+
+        const generateDom = () => {
+
+            const foodEl = document.createElement('div');
+            foodEl.classList.add('food');
+
+            const fruitEl = document.createElement('div');
+            fruitEl.id = 'fruit';
+
+            const fruitHeadlineEl = document.createElement('h2');
+            fruitHeadlineEl.innerText = 'Fruits';
+            fruitEl.appendChild(fruitHeadlineEl);
+
+            const fruitCountEl = document.createElement('span');
+            fruitCountEl.innerHTML = 'Count: <b>n</b>';
+            fruitEl.appendChild(fruitCountEl);
+
+            const fruitExamplesEl = document.createElement('div');
+            fruitExamplesEl.classList.add('examples');
+            fruitEl.appendChild(fruitExamplesEl);
+
+            foodEl.appendChild(fruitEl);
+
+            const vegetableEl = document.createElement('div');
+            vegetableEl.id = 'vegetable';
+
+            const vegetableHeadlineEl = document.createElement('h2');
+            vegetableHeadlineEl.innerText = 'Vegetables';
+            vegetableEl.appendChild(vegetableHeadlineEl);
+
+            const vegetableCountEl = document.createElement('span');
+            vegetableCountEl.innerHTML = 'Count: <b>n</b>';
+            vegetableEl.appendChild(vegetableCountEl);
+
+            const vegetableExamplesEl = document.createElement('div');
+            vegetableExamplesEl.classList.add('examples');
+            vegetableEl.appendChild(vegetableExamplesEl);
+
+            foodEl.appendChild(vegetableEl);
+
+            const legumeEl = document.createElement('div');
+            legumeEl.id = 'legume';
+
+            const legumeHeadlineEl = document.createElement('h2');
+            legumeHeadlineEl.innerText = 'Legumes';
+            legumeEl.appendChild(legumeHeadlineEl);
+
+            const legumeCountEl = document.createElement('span');
+            legumeCountEl.innerHTML = 'Count: <b>n</b>';
+            legumeEl.appendChild(legumeCountEl);
+
+            const legumeExamplesEl = document.createElement('div');
+            legumeExamplesEl.classList.add('examples');
+            legumeEl.appendChild(legumeExamplesEl);
+
+            foodEl.appendChild(legumeEl);
+
+            document.body.appendChild(foodEl);
+
+
+        }
+
+        const parseData = () => {
+
+            const fruits = [];
+            let fruitCount = 0;
+            data.forEach(d => {
+                if (d.fruit) {
+                    fruits.push(d.fruit);
+                    fruitCount += 1;
+                } else {
+                    fruitCount = fruitCount;
+                }
+            });
+
+            const vegetables = [];
+            let vegetableCount = 0;
+            data.forEach(d => {
+                if (d.vegetable) {
+                    vegetables.push(d.vegetable);
+                    vegetableCount += 1;
+                } else {
+                    vegetableCount = vegetableCount;
+                }
+            });
+
+            const legumes = [];
+            let legumeCount = 0;
+            data.forEach(d => {
+                if (d.legume) {
+                    legumes.push(d.legume);
+                    legumeCount += 1;
+                } else {
+                    legumeCount = legumeCount;
+                }
+            });
+
+            return {
+                fruits: {
+                    data: fruits,
+                    count: fruitCount,
+                },
+                vegetables: {
+                    data: vegetables,
+                    count: vegetableCount,
+                },
+                legumes: {
+                    data: legumes,
+                    count: legumeCount,
+                },
+            }
+        }
+
+        const createElementsFromResult = (r) => {
+
+            const fruitEl = document.getElementById('fruit');
+            const fruitData = r.fruits;
+            if (fruitEl && fruitData) {
+                for (let i = 0; i < fruitData.count; i += 1) {
+                    const fruit = fruitData.data[i];
+                    const fruitChildEl = document.createElement('p');
+                    fruitChildEl.innerText = fruit;
+                    fruitEl.children[2].appendChild(fruitChildEl);
+                    fruitEl.children[1].children[0].innerText = fruitData.count;
+                }
+            }
+
+            const vegetableEl = document.getElementById('vegetable');
+            const vegetableData = r.vegetables;
+            if (vegetableEl && vegetableData) {
+                for (let i = 0; i < vegetableData.count; i += 1) {
+                    const vegetable = vegetableData.data[i];
+                    const vegetableChildEl = document.createElement('p');
+                    vegetableChildEl.innerText = vegetable;
+                    vegetableEl.children[2].appendChild(vegetableChildEl);
+                    vegetableEl.children[1].children[0].innerText = vegetableData.count;
+                }
+            }
+
+            const legumeEl = document.getElementById('legume');
+            const legumeData = r.legumes;
+            if (legumeEl && vegetableData) {
+                for (let i = 0; i < vegetableData.count; i += 1) {
+                    const legume = vegetableData.data[i];
+                    const legumeChildEl = document.createElement('p');
+                    legumeChildEl.innerText = legume;
+                    legumeEl.children[2].appendChild(legumeChildEl);
+                    legumeEl.children[1].children[0].innerText = vegetableData.count;
+                }
+            }
+
+        }
+
+        const applyStyles = () => {
+
+            const body = document.body;
+            body.style.background = '#333';
+            body.style.fontFamily = 'Arial, Helvetica, sans-serif';
+            body.style.color = '#333';
+            body.style.margin = '0';
+            body.style.padding = '0';
+
+            const h2 = document.querySelectorAll('h2');
+            h2.forEach(h => {
+                h.style.margin = '0 4px';
+                h.style.padding = '0';
+            });
+
+            const span = document.querySelectorAll('span');
+            span.forEach(s => {
+                s.style.margin = '0 4px';
+                s.style.padding = '0';
+            });
+
+            const foodDivs = document.querySelectorAll('.food > div');
+            foodDivs.forEach(fd => {
+                fd.style.background = '#fff';
+                fd.style.margin = '10px';
+                fd.style.padding = '10px';
+                fd.style.borderRadius = '4px';
+            });
+
+
+            const examplePs = document.querySelectorAll('.examples p');
+            examplePs.forEach(ep => {
+                ep.style.background = '#ddd';
+                ep.style.margin = '4px';
+                ep.style.padding = '4px';
+                ep.style.borderRadius = '4px';
+            });
+
+        }
+
+        generateDom();
+        const result = parseData();
+
+        if (result) {
+            createElementsFromResult(result);
+            applyStyles();
+        }
+    </script>
+</body>
+</html>

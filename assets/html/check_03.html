@@ -1,0 +1,55 @@
+<!--
+Check (3/6)
+There are 3 errors in this piece of js code. Find and fix them.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            background: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success {
+            display: block;
+            background: #fff;
+            color: #333;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="thisiswrong">
+        Where are the errors?
+    </div>
+    <div class="thisisright hidden">
+        Code worked!
+    </div>
+    <script>
+        (function() {
+            const iAmANumber = 0;
+            for (iAmANumber=0; iAmANumber<10; iAmANumber++) {
+                if (iAmANumber === '9') {
+                    document.querySelector('.thisiswrong').classList.add('hidden');
+                    document.querySelector('thisisright').classList.add('success');
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

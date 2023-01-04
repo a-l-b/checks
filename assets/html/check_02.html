@@ -1,0 +1,45 @@
+<!--
+Check (2/6)
+How would you fix this Javascript code to make it work?
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            background: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            display: block;
+            background: #fff;
+            color: #333;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <span>Solution:</span>
+    <div class="content" id="content"></div>
+    <script>
+        solve(solution);
+
+        const solution = 'I made it work';
+
+        solve = function(solution) {
+            document.getElementById('content').innerHTML = solution;
+        }
+    </script>
+</body>
+</html>
